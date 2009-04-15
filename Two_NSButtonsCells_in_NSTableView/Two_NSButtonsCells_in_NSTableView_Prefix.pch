@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Two_NSButtonsCells_in_NSTableView' target in the 'Two_NSButtonsCells_in_NSTableView' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
