@@ -1,0 +1,59 @@
+=Localization Readme=
+This readme covers four scripts I wrote to utilize ibtool. They're all available on Google Code with MIT license.
+- Brian (brian@bdunagan.com)
+
+
+These first two scripts don't require a complicated environment, just a directory with the applicable contents.
+
+====generate_xib_strings.rb====
+http://www.bdunagan.com/2009/03/15/ibtool-localization-made-easy/
+Usage: ruby generate_xib_strings.rb path_to_lproj
+Point the script at the folder containing the XIBs and it will generate .strings files for each of them, titled xib_name.strings.
+
+====validate_strings_files.rb====
+http://www.bdunagan.com/2009/06/27/ibtool-caveats/
+Usage: ruby validate_strings_files.rb path_to_strings
+Point the script at the folder containing the .strings and it will validate them, beyond what ibtool (build 677, v3.1.2) catches. (ibtool silently fails on many characters.)
+
+
+These second two scripts do require a complicated environment. They both take localized .strings files and incorporate them into localized .lproj folders, either by clobbering or updating. Both scripts expect the .strings to be laid out like below. Both scripts depend on the .strings folders to match the .lproj folder names.
+
++ strings_folder/
+--+ DE/
+----+ AnotherWindow.strings
+----+ Localizable.strings
+----+ MainWindow.strings
+--+ ES/
+----+ AnotherWindow.strings
+----+ Localizable.strings
+----+ MainWindow.strings
+--+ FR/
+----+ AnotherWindow.strings
+----+ Localizable.strings
+----+ MainWindow.strings
+
+====localize_xibs.rb====
+http://www.bdunagan.com/2009/03/15/ibtool-localization-made-easy/
+Usage: ruby localize_xibs.rb path_to_project path_to_strings
+Creating a localized XIB is remarkably easy. A simple call to ibtool handles it, given a localized .strings file and an English version of the XIB. Keep in mind this script will clobber the existing set of localized XIBs.
+
+====localize_xibs_incremental.rb====
+http://www.bdunagan.com/2009/04/15/ibtool-localization-made-easier/
+Usage: ruby localize_xibs_incremental.rb path_to_project path_to_strings
+This is the most complicated script, but it shows how powerful ibtool is. It incrementally updates localized XIBs. Apple goes into great detail on its documentation: http://developer.apple.com/documentation/developertools/conceptual/IB_UserGuide/LocalizingNibFiles/LocalizingNibFiles.html#//apple_ref/doc/uid/TP40005344-CH13-SW8. Essentially, ibtool will diff v1 and v2 of English.lproj/MainWindow.xib and stick those changes along with new localized strings into v2 of fr.lproj/MainWindow.xib while preserving changes from v1 of fr.lproj/MainWindow.xib. Resizing UI elements is a perfect example of changes that are preserved in incremental updates. It does require even more preprocessing as a setup. In addition to the strings folder directory structure, all the relevant .lproj folders need to be laid out in a specific manner.
+
++ English.lproj/
+--+ AnotherWindow.new.xib
+--+ AnotherWindow.old.xib
+--+ Localizable.strings
+--+ MainWindow.new.xib
+--+ MainWindow.old.xib
+
++ fr.lproj/
+--+ AnotherWindow.old.xib
+--+ Localizable.strings
+--+ MainWindow.old.xib
+
+I wrote the script in terms of xib_name.old.xib and xib_name.new.xib. The old version of the localized XIB is simply the existing version, as I want to create the new version. I do name the new version xib_name.xib intentionally so that it's ready to be committed to the source code repository, presumably where it already exists. The new version of the English XIB is the latest version also, but the old version of the English XIB is the checkpoint in the revision history where I last updated the localized XIB.
+
+Finally, the last part of the script's workflow actually generates .strings files for the old and new versions of the localized XIB. I always diff this pair of files to ensure the update process went smoothly.

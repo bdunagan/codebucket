@@ -18,6 +18,7 @@ PROJECT_PATH = ARGV[0]
 STRINGS_PATH = ARGV[1]
 FileUtils.cd(PROJECT_PATH)
 FILES_TO_IGNORE = [".svn", "." ,"..", ".DS_Store"]
+NON_XIB_LOCALIZED_FILES = ["InfoPlist.strings","Localizable.strings"]
 
 # Iterate through the current directory.
 Dir.entries(STRINGS_PATH).each do |localized_folder|
@@ -25,10 +26,14 @@ Dir.entries(STRINGS_PATH).each do |localized_folder|
     puts "Generating localizations for #{localized_folder}"
     # Iterate over the .strings language folders.
     Dir.entries(STRINGS_PATH + "/" + localized_folder).each do |strings_file|
-      if (!FILES_TO_IGNORE.include?(strings_file))
+      strings_path = STRINGS_PATH + "/" + localized_folder + "/" + strings_file
+      if (NON_XIB_LOCALIZED_FILES.include?(strings_file))
+        # Copy the other .strings files over.
+        %x[cp \"#{strings_path}\" \"#{localized_folder}.lproj/#{strings_file}\"]
+        puts "COPIED #{strings_file} to #{localized_folder}"
+      elsif (!FILES_TO_IGNORE.include?(strings_file))
         filename = strings_file.slice(0,strings_file.length-8)
         source_xib = SOURCE_XIB_FOLDER + "/" + filename
-        strings_path = STRINGS_PATH + "/" + localized_folder + "/" + strings_file
 
         # Each .strings file needs to create/clobber a localized XIB in that .lproj folder.
         command = "ibtool --strings-file \"#{strings_path}\" --write \"#{localized_folder}.lproj/#{filename}.xib\" \"#{source_xib}.xib\""

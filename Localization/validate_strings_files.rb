@@ -28,7 +28,7 @@ def verify_file(file)
 
   # Use general method unless file encoding is UTF-16.
   file_handle = File.new(file, "r")
-  # file_handle = File.new(file, "r:UTF-16LE:UTF-8") (See http://blog.grayproductions.net/articles/ruby_19s_three_default_encodings)
+  # file_handle = File.new(file, "r:UTF-16LE:UTF-8")# (See http://blog.grayproductions.net/articles/ruby_19s_three_default_encodings)
 
   puts "VERIFYING FILE #{file}"
   while (!file_handle.eof?)
