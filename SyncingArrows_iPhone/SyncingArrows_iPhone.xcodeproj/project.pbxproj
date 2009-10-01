@@ -31,7 +31,7 @@
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* SyncingArrows_iPhoneAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncingArrows_iPhoneAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* SyncingArrows_iPhoneAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncingArrows_iPhoneAppDelegate.m; sourceTree = "<group>"; };
-		1D6058910D05DD3D006BFB54 /* SyncingArrows_iPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyncingArrows_iPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D6058910D05DD3D006BFB54 /* SyncingArrowsiPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SyncingArrowsiPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		2899E5210DE3E06400AC0155 /* SyncingArrows_iPhoneViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SyncingArrows_iPhoneViewController.xib; sourceTree = "<group>"; };
@@ -85,7 +85,7 @@
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1D6058910D05DD3D006BFB54 /* SyncingArrows_iPhone.app */,
+				1D6058910D05DD3D006BFB54 /* SyncingArrowsiPhone.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,9 +151,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1D6058900D05DD3D006BFB54 /* SyncingArrows_iPhone */ = {
+		1D6058900D05DD3D006BFB54 /* SyncingArrowsiPhone */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SyncingArrows_iPhone" */;
+			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SyncingArrowsiPhone" */;
 			buildPhases = (
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
@@ -163,9 +163,9 @@
 			);
 			dependencies = (
 			);
-			name = SyncingArrows_iPhone;
+			name = SyncingArrowsiPhone;
 			productName = SyncingArrows_iPhone;
-			productReference = 1D6058910D05DD3D006BFB54 /* SyncingArrows_iPhone.app */;
+			productReference = 1D6058910D05DD3D006BFB54 /* SyncingArrowsiPhone.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -180,7 +180,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1D6058900D05DD3D006BFB54 /* SyncingArrows_iPhone */,
+				1D6058900D05DD3D006BFB54 /* SyncingArrowsiPhone */,
 			);
 		};
 /* End PBXProject section */
@@ -230,7 +230,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SyncingArrows_iPhone_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = SyncingArrows_iPhone;
+				PRODUCT_NAME = SyncingArrowsiPhone;
 			};
 			name = Debug;
 		};
@@ -242,7 +242,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = SyncingArrows_iPhone_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				PRODUCT_NAME = SyncingArrows_iPhone;
+				PRODUCT_NAME = SyncingArrowsiPhone;
 			};
 			name = Release;
 		};
@@ -280,7 +280,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SyncingArrows_iPhone" */ = {
+		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "SyncingArrowsiPhone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
