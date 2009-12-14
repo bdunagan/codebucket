@@ -16,7 +16,6 @@
 		8D202CF30486D31800D8A456 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 		8D202CF40486D31800D8A456 /* PreferencePanes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F506C035013D953901CA16C8 /* PreferencePanes.framework */; };
 		D3847AC010D5B0C300101184 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3847ABD10D5B0C300101184 /* Security.framework */; };
-		D3847AC110D5B0C300101184 /* SecurityFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3847ABE10D5B0C300101184 /* SecurityFoundation.framework */; };
 		D3847AC210D5B0C300101184 /* SecurityInterface.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3847ABF10D5B0C300101184 /* SecurityInterface.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +28,6 @@
 		8D202CF70486D31800D8A456 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D202CF80486D31800D8A456 /* BDAuthorizePrefPane.prefPane */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BDAuthorizePrefPane.prefPane; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3847ABD10D5B0C300101184 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		D3847ABE10D5B0C300101184 /* SecurityFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityFoundation.framework; path = System/Library/Frameworks/SecurityFoundation.framework; sourceTree = SDKROOT; };
 		D3847ABF10D5B0C300101184 /* SecurityInterface.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SecurityInterface.framework; path = System/Library/Frameworks/SecurityInterface.framework; sourceTree = SDKROOT; };
 		F506C035013D953901CA16C8 /* PreferencePanes.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PreferencePanes.framework; path = /System/Library/Frameworks/PreferencePanes.framework; sourceTree = "<absolute>"; };
 		F506C03C013D9D7901CA16C8 /* BDAuthorizePrefPanePref.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BDAuthorizePrefPanePref.h; sourceTree = "<group>"; };
@@ -46,7 +44,6 @@
 				8D202CF30486D31800D8A456 /* Cocoa.framework in Frameworks */,
 				8D202CF40486D31800D8A456 /* PreferencePanes.framework in Frameworks */,
 				D3847AC010D5B0C300101184 /* Security.framework in Frameworks */,
-				D3847AC110D5B0C300101184 /* SecurityFoundation.framework in Frameworks */,
 				D3847AC210D5B0C300101184 /* SecurityInterface.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,7 +105,6 @@
 			isa = PBXGroup;
 			children = (
 				D3847ABD10D5B0C300101184 /* Security.framework */,
-				D3847ABE10D5B0C300101184 /* SecurityFoundation.framework */,
 				D3847ABF10D5B0C300101184 /* SecurityInterface.framework */,
 				089C1672FE841209C02AAC07 /* Foundation.framework */,
 				089C167FFE841241C02AAC07 /* AppKit.framework */,
