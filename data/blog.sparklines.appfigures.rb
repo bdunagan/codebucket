@@ -1,5 +1,6 @@
 # Require libraries.
 require 'rubygems'
+require 'time'
 require 'net/http'
 require 'net/https'
 require 'json'
@@ -7,6 +8,11 @@ require 'json'
 class Time
   def to_short_date
     self.utc.strftime("%Y-%m-%d")
+  end
+
+  def to_js_date
+    # Safari Javascript doesn't parse to_short_date format.
+    self.utc.strftime("%Y/%m/%d")
   end
 end
 
@@ -25,12 +31,12 @@ stop_date = Time.utc(stop.year, stop.month, stop.day - 1)
 # Prepopulate dates to ensure range. Appfigures's API is not great about including every day.
 current_date = start_date
 while current_date <= stop_date
-  rml_data[current_date.to_short_date] = 0
+  rml_data[current_date.to_js_date] = 0
   current_date += day_length
 end
 current_date = start_date
 while current_date <= stop_date
-  dc_data[current_date.to_short_date] = 0
+  dc_data[current_date.to_js_date] = 0
   current_date += day_length
 end
 
@@ -46,8 +52,8 @@ http.start() {|http|
 af_data = JSON.parse(af_response)
 
 # Parse data.
-af_data[dc_key].keys.sort.each { |date| dc_data[date] = af_data[dc_key][date]['app_downloads'] }
-af_data[rml_key].keys.sort.each { |date| rml_data[date] = af_data[rml_key][date]['app_downloads'] }
+af_data[dc_key].keys.sort.each { |date| dc_data[Time.parse(date).to_js_date] = af_data[dc_key][date]['app_downloads'] }
+af_data[rml_key].keys.sort.each { |date| rml_data[Time.parse(date).to_js_date] = af_data[rml_key][date]['app_downloads'] }
 
 # Write to files.
 f = File.new('dc.txt','w')

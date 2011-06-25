@@ -5,6 +5,12 @@ require 'oauth'
 require 'garb'
 require 'json'
 
+class Time
+  def to_js_date
+    self.utc.strftime("%Y/%m/%d")
+  end
+end
+
 # Setup OAuth. (See http://everburning.com/news/google-analytics-oauth-and-ruby-oh-my/.)
 # Register a domain: https://www.google.com/accounts/ManageDomains.
 oauth_consumer = OAuth::Consumer.new(consumer_key, consumer_secret, {:site => 'https://www.google.com', :request_token_path => '/accounts/OAuthGetRequestToken', :access_token_path => '/accounts/OAuthGetAccessToken', :authorize_path => '/accounts/OAuthAuthorizeToken'})
@@ -28,7 +34,7 @@ start_date = Time.utc(start.year, start.month, start.day - 1)
 stop_date = Time.utc(stop.year, stop.month, stop.day - 1)
 results = RecentVisits.results(profile, :start_date => start_date, :end_date => stop_date, :sort => :date)
 visits = {}
-results.each {|result| visits[result.date] = result.visits}
+results.each { |result| visits[Time.parse(result.date).to_js_date] = result.visits }
 # Save to a file.
 f = File.new("ga.txt","w")
 f.write(visits.to_json)
