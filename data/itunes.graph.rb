@@ -21,7 +21,7 @@ class Track
   attr_accessor :length
   
   def valid?
-    self.title.valid? && self.artist.valid? && self.album.valid? && self.play_count.valid? && self.length.valid?
+    self.title.valid? && self.play_count.valid? && self.length.valid?
   end
 
   def to_s
