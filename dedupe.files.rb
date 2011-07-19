@@ -39,7 +39,7 @@ end
  
 # Loop through digests.
 db.execute("select digest,path,count(1) as count from files group by digest order by count desc").each do |row|
-  puts "row: #{row}"
+  # puts "row: #{row}"
   if row[2].to_i > 1 # Skip unique files.
     puts "Duplicates found:"
     digest = row[0]
